@@ -6,7 +6,7 @@ Vector search and vector storage capabilities to implement multi-tenant solution
 
 Cloud based solutions that Independent Software Vendors (ISVs) offer to customers must implement functionalities that ensure that data is only accessible to the respective tenants. For cost and management reasons, multi-tenant solutions are often preferred for this purpose.
 
-Azure Cognitive Search provides functionality that makes it easy to store vectors or embeddings used in AI solutions and meet the requirements of a multi-tenant application.
+Azure Cognitive Search provides functionality that makes it easy to store vectors or embeddings and can meet the requirements of a multi-tenant application.
 
 ### Solution Overview
 
