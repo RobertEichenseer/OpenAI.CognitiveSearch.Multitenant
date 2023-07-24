@@ -1,6 +1,6 @@
 # Azure Cognitive Search - Implement multi-tenant OpenAI solutions
 
-Vector search and storage capabilities from Azure Cognitive Search to implement multi-tenant solutions.
+Vector search and vector storage capabilities to implement multi-tenant solutions.
 
 ## Challenge
 
