@@ -6,11 +6,11 @@ Vector search and vector storage capabilities to implement multi-tenant solution
 
 Cloud based solutions that Independent Software Vendors (ISVs) offer to customers must implement functionalities that ensure that data is only accessible to the respective tenants. For cost and management reasons, multi-tenant solutions are often preferred for this purpose.
 
-Azure Cognitive Search provides functionality that makes it easy to store vectors or embeddings and can meet the requirements of a multi-tenant application.
+Azure Cognitive Search provides functionality that makes it easy to store vectors or embeddings and can simplify the development and maintenance of multi-tenant applications.
 
 ### Solution Overview
 
-For each tenant a tenant specific search index is created. This search index is used to populate and query tenant specific information in a single Azure Cognitive Search
+For each tenant a tenant specific search index is created. This search index is used to populate and to query tenant specific information in a single Azure Cognitive Search instance.
 
 ![Solution Overview](./media/img/SolutionOverview.png)
 
@@ -70,7 +70,7 @@ Provide in [launch.json](.vscode/launch.json) Cognitive Search and OpenAI endpoi
 
 In [Program.cs](./src/SimpleClient/Program.cs) tenant specific search indexes and tenant specific information is created. The information is populated to the tenant specific search index.
 
-The function `PopulateDocumentToIndex()` creates embeddings using the Azure OpenAI instance and the deployed embeddings model.
+The function `PopulateDocumentToIndex()` creates embeddings using the Azure OpenAI instance and the deployed embeddings model and populates the information to the defined tenant specific search index.
 
 ```csharp
 //**********************************************
@@ -118,7 +118,7 @@ tenantId = "republic";
 await _searchIndex.PopulateDocumentToIndex(tenantId, documentId, documentTitle, documentUrl, documentEmbedding);
 ```
 
-For the tenant `empire` information about the planet [Scarif](https://en.wikipedia.org/wiki/List_of_Star_Wars_planets_and_moons) are stored. The tenant `republic` stores information about the planet [Ossus](https://en.wikipedia.org/wiki/List_of_Star_Wars_planets_and_moons). In addition to the tenant-specific (and secret) information, information about Coruscant is stored in the search indexes of both tenants.
+For the tenant `empire` information about the planet [Scarif](https://en.wikipedia.org/wiki/List_of_Star_Wars_planets_and_moons) are stored. The tenant `republic` stores information about the planet [Ossus](https://en.wikipedia.org/wiki/List_of_Star_Wars_planets_and_moons). In addition to the tenant-specific (and secret) information, information about Coruscant is stored in both tenant indexes.
 
 ***Query***
 
@@ -148,7 +148,7 @@ The class [SearchIndex](./src/SimpleClient/SearchIndex.cs) takes care of the com
 - `PopulateDocumentToSearchIndex()`
 - `GetDocumentsFromSearchIndex()`
 
-All functions take as a first parameter a `tenantId` uniquely identifying the correct tenant information.
+All functions take as a first parameter a `tenantId` uniquely identifying the correct tenant information. The function `GetDocumentsFromSearchIndex()` returns the top results from the query.
 
 ## Summary
 
