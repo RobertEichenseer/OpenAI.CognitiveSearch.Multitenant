@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "SimpleClient",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "simpleclient_build",
+            "program": "${workspaceFolder}/src/SimpleClient/bin/Debug/net7.0/SimpleClient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/SimpleClient",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "CS_SEARCH_ENDPOINT": "<<your cognitive search endpoint>>", 
+                "CS_SEARCH_APIKEY": "<<your cognitive search api key>>", 
+                "CS_SEARCH_APIVERSION": "2023-07-01-Preview", 
+                "CS_EMBEDDING_ENDPOINT": "<<your azure openai endpoint>>",
+                "CS_EMBEDDING_APIKEY": "<<your azure openai api key>>",
+                "CS_EMBEDDING_DEPLOYMENTNAME": "<<your azure openai model deployment name>>"
+            }
+        }
+    ]
+}

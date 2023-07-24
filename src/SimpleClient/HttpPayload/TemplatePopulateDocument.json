@@ -1,0 +1,13 @@
+{
+    "value": [
+        {
+            "documentid": "{{documentId}}",
+            "documentTitle": "{{documentTitle}}",
+            "documentUrl": "{{documentUrl}}",
+            "documentContentVector": [
+                "{{documentContentVector}}"
+            ],
+            "@search.action": "upload"
+        }
+    ]
+}

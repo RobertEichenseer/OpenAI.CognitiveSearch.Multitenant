@@ -1,0 +1,63 @@
+{
+    "name": "{{indexName}}",
+    "fields": [
+        {
+            "name": "documentId",
+            "type": "Edm.String",
+            "key": true,
+            "filterable": true
+        },
+        {
+            "name": "documentTitle",
+            "type": "Edm.String",
+            "searchable": true,
+            "retrievable": true
+        },
+        {
+            "name": "documentUrl",
+            "type": "Edm.String",
+            "searchable": true,
+            "retrievable": true
+        },
+        {
+            "name": "documentContentVector",
+            "type": "Collection(Edm.Single)",
+            "searchable": true,
+            "retrievable": true,
+            "dimensions": 1536,
+            "vectorSearchConfiguration": "documentVectorConfig"
+        }
+    ],
+    "corsOptions": {
+        "allowedOrigins": [
+            "*"
+        ],
+        "maxAgeInSeconds": 60
+    },
+    "vectorSearch": {
+        "algorithmConfigurations": [
+            {
+                "name": "documentVectorConfig",
+                "kind": "hnsw"
+            }
+        ]
+    },
+    "semantic": {
+        "configurations": [
+            {
+                "name": "semanticConfig",
+                "prioritizedFields": {
+                    "titleField": {
+                        "fieldName": "documentTitle"
+                    },
+                    "prioritizedContentFields": [
+                        {
+                            "fieldName": "documentUrl"
+                        }
+                    ],
+                    "prioritizedKeywordsFields": []
+                }
+            }
+        ]
+    }
+}

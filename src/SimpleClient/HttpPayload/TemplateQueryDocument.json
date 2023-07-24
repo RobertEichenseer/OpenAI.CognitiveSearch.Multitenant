@@ -1,0 +1,11 @@
+{
+    "vectors": [
+        {
+            "value": [
+                "{{documentQueryVector}}"
+            ],
+            "fields": "documentContentVector",
+            "k": "{{documentCount}}"
+        }
+    ]
+}
